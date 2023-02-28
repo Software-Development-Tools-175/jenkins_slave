@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        stage('pre-build') {
+        stage('Pre-build') {
             steps {
                 sh 'echo Pre-build'
                 sh 'python3 --version'
@@ -19,7 +19,7 @@ pipeline {
         stage('Trigger the Slave Jobs') {
             steps {
                 echo 'Start Trigger to send name and age to slave'
-                build job: './jenkins_slave', parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
+                build job: 'jenkins_slave'
             }
         }
     }
