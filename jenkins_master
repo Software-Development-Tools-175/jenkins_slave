@@ -19,7 +19,7 @@ pipeline {
         stage('Trigger the Slave Jobs') {
             steps {
                 echo 'Start Trigger to send name and age to slave'
-                build (job: 'slave', propagate: false)
+                build job: 'slave', parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
             }
         }
     }
