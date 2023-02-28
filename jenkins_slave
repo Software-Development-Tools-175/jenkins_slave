@@ -7,10 +7,16 @@ pipeline {
     }
 
     stages {
+        // stage('build') {
+        //     steps {
+        //       echo 'build in progress'
+        //         sh ('python myscript.py' + params.NAME + params.Ages)
+        //     }
+        // }
         stage('build') {
             steps {
               echo 'build in progress'
-                sh ('python myscript.py' + params.NAME + params.Ages)
+                sh ('slave is working')
             }
         }
     }

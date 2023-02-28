@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Welcome to master'){
+        stage('Welcome to main branch'){
             steps{
                 echo 'Start Program'
             }
@@ -19,7 +19,8 @@ pipeline {
         stage('Trigger the Slave Jobs') {
             steps {
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'jenkins_slave', parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
+                build job: 'jenkins_slave',
+                //parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
             }
         }
     }
