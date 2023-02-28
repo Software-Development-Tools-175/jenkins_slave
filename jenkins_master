@@ -2,17 +2,24 @@ pipeline {
     agent any
 
     stages {
-        
+
         stage('Welcome to master'){
             steps{
                 echo 'Start Program'
             }
         }
 
-        stage('Tigger the Slave Jobs') {
+        stage('pre-build') {
+            steps {
+                sh 'echo Pre-build'
+                sh 'python3 --version'
+            }
+        }
+
+        stage('Trigger the Slave Jobs') {
             steps {
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'slave', parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
+                build job: 'jenkins_slave', parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
             }
         }
     }

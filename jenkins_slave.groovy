@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+              echo 'build in progress'
                 sh ('python myscript.py' + params.NAME + params.Ages)
             }
         }
