@@ -10,7 +10,6 @@ def extractCSV():
           rows.append(row)
 
   print(rows)
-  return rows
 
 extractCSV()
 

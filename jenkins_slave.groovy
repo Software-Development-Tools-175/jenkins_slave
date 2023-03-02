@@ -6,7 +6,7 @@ pipeline {
             steps {
               echo 'build in progress'
               echo 'running script ...'
-              sh "python myscript.py ${params.memberList}"
+              sh "python myscript.py ${params.file}"
             }
         }
     }
