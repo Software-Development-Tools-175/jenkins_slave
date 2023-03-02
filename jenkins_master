@@ -20,7 +20,7 @@ pipeline {
             steps{
                 script{
                     try{
-                        env.member = sh(script: "python parsingCSV.py",returnStdout: true)
+                        env.member = sh(script: "python parsingCSV.py", returnStdout: true)
                         echo "$member"
                     }catch(Exception e){
                         echo "Error occured"
