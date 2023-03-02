@@ -1,12 +1,11 @@
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("memberList", nargs="?", type=str, help="the name list to greet")
+parser.add_argument("memberList", nargs="?", type=list, help="the name list to greet")
 args = parser.parse_args()
 
-convertStr = list(args.memberList)
-if convertStr is not None:
-    for x in convertStr:
+if args.memberList is not None:
+    for x in args.memberList:
         print(x)
 else:
     print("can't reach list")
