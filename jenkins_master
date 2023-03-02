@@ -13,6 +13,8 @@ pipeline {
             steps {
                 sh 'echo Pre-build'
                 sh 'python3 --version'
+                echo "reaching CSV file..."
+                sh "python parsingCSV.py"
             }
         }
 
@@ -25,7 +27,6 @@ pipeline {
                         echo "Error occured"
                     }
                 }
-                sh "python parsingCSV.py"
             }
         }
 
