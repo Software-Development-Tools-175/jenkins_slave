@@ -21,7 +21,6 @@ pipeline {
                 script{
                     try{
                         env.member = sh(script: "python parsingCSV.py",returnStdout: true)
-                        $(echo member = "${member[0]}")
                         echo "$member"
                     }catch(Exception e){
                         echo "Error occured"
