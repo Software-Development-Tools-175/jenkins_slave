@@ -21,7 +21,7 @@ pipeline {
                 script{
                     def excelFormat = CSVFormat.EXCEL
                     def records = readCSV file: 'args.csv', format: excelFormat
-                    env.data = record[0][0]
+                    env.data = records[0][0]
                 }
                 echo "records $data"
             }
