@@ -11,4 +11,4 @@ python myscript.py args.csv
 2. Slave pipeline call args.csv to myscript.py then run function inside
 ```
 
-#### Video: [master-slave testing video]()
+#### Video: [master-slave testing video](https://drive.google.com/file/d/1eVcvVKcjYDhDURZCD3VAaWwa1uGUyXw3/view?usp=sharing)
