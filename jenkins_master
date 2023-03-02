@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    env{
-        argsList = argsList
-    }
-
     stages {
 
         stage('Welcome to main branch'){
@@ -21,9 +17,11 @@ pipeline {
         }
 
         stage('Parse value from CSV'){
-            readCSV(file: "args.csv").each { line ->
-                line.each { field ->
-                    echo field
+            steps{
+                readCSV(file: "args.csv").each { line ->
+                    line.each { field ->
+                        echo field
+                    }
                 }
             }
         }
