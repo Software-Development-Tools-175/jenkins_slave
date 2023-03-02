@@ -19,9 +19,11 @@ pipeline {
         stage('Parse value from CSV'){
             steps{
                 script{
-                    def excelFormat = CSVFormat.EXCEL
-                    def records = readCSV file: 'args.csv', format: excelFormat
-                    println "${records}"
+                    try{
+                        sh "python parsingCSV.py"
+                    }catch(Exception e){
+                        echo "Error occured"
+                    }
                 }
             }
         }
