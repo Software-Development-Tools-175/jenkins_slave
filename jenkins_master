@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    parameters {
-        string description: 'write the week number', name: 'Week_Number'
-    }
 
     stages {
 
@@ -24,6 +21,7 @@ pipeline {
                 script{
                     try{
                         sh "python parsingCSV.py"
+                        env.member = sh(script: "python parsingCSV.py",returnStdout: true)
                     }catch(Exception e){
                         echo "Error occured"
                     }
@@ -35,7 +33,7 @@ pipeline {
             steps {
                 echo 'Start Trigger to send name and age to slave'
                 echo 'Triggering ...'
-                build job: 'slave', parameters: [string([[101, "Jennifer", "Roberts", 44],[102, "Julia", "Roberts", 42]])]
+                build job: 'slave', parameters: [string(name: 'memberList', value: "$member")]
             }
         }
     }
