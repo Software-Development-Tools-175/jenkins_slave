@@ -18,11 +18,12 @@ pipeline {
 
         stage('Parse value from CSV'){
             steps{
-                readCSV(file: "args.csv").each { line ->
-                    line.each { field ->
-                        echo field
-                    }
-                }
+                def excelFormat = CSVFormat.EXCEL
+                def records = readCSV file: 'args.csv', format: excelFormat
+                assert records[0][0] == 'key'
+                assert records[1][1] == 'b'
+
+                echo records[1][1]
             }
         }
 
