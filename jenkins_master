@@ -1,5 +1,3 @@
-import org.apache.commons.csv.CSVFormat;
-
 pipeline {
     agent any
 
@@ -21,9 +19,9 @@ pipeline {
         stage('Parse value from CSV'){
             steps{
                 script{
-                    def excelFormat = CSVFormat.EXCEL
-                    def records = readCSV file: 'args.csv', format: excelFormat
-                    env.data = records[0][0]
+                    def file = new File('args.csv')
+                    def rows = file.readLines().tail()*.split(',')
+                    env.data = rows
                 }
                 echo "records $data"
             }
