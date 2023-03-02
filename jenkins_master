@@ -24,7 +24,7 @@ pipeline {
 
         stage('Parse value from CSV'){
             steps{
-                echo records[1][1]
+                echo "records ${records[1][1]}"
             }
         }
 
