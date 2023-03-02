@@ -21,7 +21,7 @@ pipeline {
                 script{
                     try{
                         sh(script: "python parsingCSV.py", returnStdout: true)
-                        member = sh(script: "python parsingCSV.py | tail -0", returnStdout: true)
+                        env.member = sh(script: "python parsingCSV.py | tail -0", returnStdout: true)
                     }catch(Exception e){
                         echo "Error occured"
                     }
