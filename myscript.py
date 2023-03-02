@@ -5,7 +5,11 @@ parser.add_argument("memberList", nargs="?", type=str, help="the name list to gr
 args = parser.parse_args()
 
 convertStr = list(args.memberList)
-print(convertStr)
+if convertStr is not None:
+    for x in convertStr:
+        print(x)
+else:
+    print("can't reach list")
 
 # greeting = ""
 # if args.memberList:
