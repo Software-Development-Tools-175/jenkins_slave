@@ -5,6 +5,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("file", nargs="?", help="the CSV file")
 args = parser.parse_args()
 
+greeting = ""
+
 def printMember():
   rows = []
 

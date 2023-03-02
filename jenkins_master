@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Parse value from CSV'){
+        stage('Test parsing value from CSV'){
             steps{
                 script{
                     try{
