@@ -10,7 +10,6 @@ def extractCSV():
           rows.append(row)
 
   print(rows)
-  sys.stderr.write(rows)
   return rows
 
 extractCSV()
