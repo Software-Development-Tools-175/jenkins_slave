@@ -1,7 +1,7 @@
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("memberList", help="the name list to greet", type=string)
+parser.add_argument("memberList", help="the name list to greet")
 args = parser.parse_args()
 
 convertStr = list(args.memberList)
