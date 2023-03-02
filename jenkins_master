@@ -1,3 +1,9 @@
+
+def excelFormat = CSVFormat.EXCEL
+def records = readCSV file: 'args.csv', format: excelFormat
+assert records[0][0] == 'key'
+assert records[1][1] == 'b'
+
 pipeline {
     agent any
 
@@ -18,11 +24,6 @@ pipeline {
 
         stage('Parse value from CSV'){
             steps{
-                def excelFormat = CSVFormat.EXCEL
-                def records = readCSV file: 'args.csv', format: excelFormat
-                assert records[0][0] == 'key'
-                assert records[1][1] == 'b'
-
                 echo records[1][1]
             }
         }
