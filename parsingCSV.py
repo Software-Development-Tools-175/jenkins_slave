@@ -10,7 +10,7 @@ def extractCSV():
           rows.append(row)
 
       for item in rows:
-        print("${item}")
+        print(item[0], "Name: ", item[1])
 
 extractCSV()
 
