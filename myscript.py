@@ -1,4 +1,5 @@
 import argparse
+import csv
 
 parser = argparse.ArgumentParser()
 parser.add_argument("file", nargs="?", help="the CSV file")
