@@ -1,8 +1,7 @@
-import groovy.lang.Binding
-
-def file = new File('args.csv')
-def rows = file.readLines().tail()*.split(',')
-assert file.readLines()*.split(',') == data
+def mapper = new CsvMapper().readerForListOf(String).with(CsvParser.Feature.WRAP_AS_ARRAY)
+file.withReader { r ->
+    assert mapper.readValues(r).readAll() == data
+}
 
 pipeline {
     agent any
@@ -24,7 +23,7 @@ pipeline {
 
         stage('Parse value from CSV'){
             steps{
-                echo "records ${rows}"
+                echo "records ${mapper}"
             }
         }
 
