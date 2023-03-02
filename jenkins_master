@@ -24,7 +24,6 @@ pipeline {
                 script{
                     try{
                         sh "python parsingCSV.py"
-                        env.memberList = sh(script: 'python parsingCSV.py',returnStdout: true).trim()
                     }catch(Exception e){
                         echo "Error occured"
                     }
@@ -36,7 +35,7 @@ pipeline {
             steps {
                 echo 'Start Trigger to send name and age to slave'
                 echo 'Triggering ...'
-                build job: 'slave', parameters: [string(${memberList})]
+                build job: 'slave', parameters: [string([[101, "Jennifer", "Roberts", 44],[102, "Julia", "Roberts", 42]])]
             }
         }
     }
