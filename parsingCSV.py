@@ -3,7 +3,7 @@ import csv
 def extractCSV():
   rows = []
 
-  with open("Salary_Data.csv", r) as file:
+  with open("args.csv") as file:
       csvreader = csv.reader(file)
       header = next(csvreader)
       for row in csvreader:
