@@ -1,3 +1,4 @@
+import groovy.lang.Binding
 
 def excelFormat = CSVFormat.EXCEL
 def records = readCSV file: 'args.csv', format: excelFormat
