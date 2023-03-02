@@ -10,7 +10,7 @@ def extractCSV():
           rows.append(row)
 
       for item in rows:
-        print(item[0], "Name: ", item[1])
+        print("Member No. " + item[0] + " " + item[1] + " " + item[2] + " is " + item[3] + " years old")
 
 extractCSV()
 
