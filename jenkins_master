@@ -1,8 +1,3 @@
-def mapper = new CsvMapper().readerForListOf(String).with(CsvParser.Feature.WRAP_AS_ARRAY)
-file.withReader { r ->
-    assert mapper.readValues(r).readAll() == data
-}
-
 pipeline {
     agent any
 
@@ -23,7 +18,12 @@ pipeline {
 
         stage('Parse value from CSV'){
             steps{
-                echo "records ${mapper}"
+                script{
+                    def excelFormat = CSVFormat.EXCEL
+                    def records = readCSV file: 'args.csv', format: excelFormat
+                    env.data = record[0][0]
+                }
+                echo "records $data"
             }
         }
 
