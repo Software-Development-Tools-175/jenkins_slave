@@ -17,7 +17,7 @@ def printMember():
           rows.append(row)
 
   for item in rows:
-    greeting += "Member No. " + item[0] + " " + item[1] + " " + item[2] + " is " + item[3] + " years old. \n"
+    greeting += "Member No." + item[0] + item[1]+ item[2] + "is" + item[3] + " years old. \n"
     print(greeting)
 
 printMember()
