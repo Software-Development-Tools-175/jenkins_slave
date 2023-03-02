@@ -10,7 +10,7 @@ def extractCSV():
           rows.append(row)
 
       for item in rows:
-        println("${item[1]} ${item[2]} with age ${item[3]} has id ${item[0]}")
+        print("${item}")
 
 extractCSV()
 
