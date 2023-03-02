@@ -19,11 +19,16 @@ pipeline {
         stage('Parse value from CSV'){
             steps{
                 script{
-                    def file = new File('args.csv')
-                    def rows = file.readLines().tail()*.split(',')
-                    env.data = rows
+                    def convertResultFile(String filename) {
+                        def testsResults = [:]
+                        def csv_content = readCSV file: filename
+                        for (def record : csv_content) {
+                            testsResults[record[0]] = record[1]
+                        }
+                        println testsResults
+                    }
                 }
-                echo "records $data"
+                convertResultFile("args.csv")
             }
         }
 
