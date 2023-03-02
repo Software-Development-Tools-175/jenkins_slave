@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        string description: 'write the week number', name: 'Week_Number'
+    }
 
     stages {
 
@@ -33,7 +36,7 @@ pipeline {
             steps {
                 echo 'Start Trigger to send name and age to slave'
                 echo 'Triggering ...'
-                build job: 'slave', parameters: List(env.memberList)
+                build job: 'slave', parameters: [string($memberList)]
             }
         }
     }

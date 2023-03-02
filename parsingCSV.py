@@ -9,5 +9,7 @@ def extractCSV():
       for row in csvreader:
           rows.append(row)
 
+  return str(rows)
+
 extractCSV()
 
