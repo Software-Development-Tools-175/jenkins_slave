@@ -21,7 +21,7 @@ pipeline {
                 script{
                     def excelFormat = CSVFormat.EXCEL
                     def records = readCSV file: 'args.csv', format: excelFormat
-                    println records
+                    println "${records}"
                 }
             }
         }
