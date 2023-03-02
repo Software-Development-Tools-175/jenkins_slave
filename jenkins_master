@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    env{
+        argsList = argsList
+    }
+
     stages {
 
         stage('Welcome to main branch'){
@@ -13,6 +17,14 @@ pipeline {
             steps {
                 sh 'echo Pre-build'
                 sh 'python3 --version'
+            }
+        }
+
+        stage('Parse value from CSV'){
+            readCSV(file: "args.csv").each { line ->
+                line.each { field ->
+                    echo field
+                }
             }
         }
 
