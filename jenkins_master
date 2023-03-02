@@ -1,9 +1,8 @@
 import groovy.lang.Binding
 
-def excelFormat = CSVFormat.EXCEL
-def records = readCSV file: 'args.csv', format: excelFormat
-assert records[0][0] == 'key'
-assert records[1][1] == 'b'
+def file = new File('args.csv')
+def rows = file.readLines().tail()*.split(',')
+assert file.readLines()*.split(',') == data
 
 pipeline {
     agent any
@@ -25,7 +24,7 @@ pipeline {
 
         stage('Parse value from CSV'){
             steps{
-                echo "records ${records[1][1]}"
+                echo "records ${rows}"
             }
         }
 
